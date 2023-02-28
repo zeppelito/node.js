@@ -1,0 +1,16 @@
+npm install express
+const express = require('express');
+const app = express();
+
+app.get('/hello', (req, res) => {
+  res.send('Olá, mundo!');
+});
+
+app.post('/post', (req, res) => {
+  res.send(req.body);
+});
+
+const port = 8080;
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
