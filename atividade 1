@@ -1,0 +1,44 @@
+ Web é baseada no modelo cliente-servidor, onde um cliente, geralmente um navegador da Web, envia uma solicitação (HTTP request) para um servidor da Web, que processa a solicitação e retorna uma resposta (HTTP response). O protocolo HTTP (Hypertext Transfer Protocol) é usado para enviar e receber essas solicitações e respostas.
+
+O processo geralmente funciona da seguinte maneira: o cliente envia uma solicitação HTTP para o servidor, que processa a solicitação e envia uma resposta de volta ao cliente. A resposta pode incluir informações HTML, CSS, JavaScript, imagens e outros recursos da Web.
+
+Para criar um projeto em node.js usando o npm, siga os seguintes passos:
+
+
+Instale o node.js em seu computador. Você pode baixar e instalar a versão mais recente do node.js em https://nodejs.org.
+
+Abra o terminal ou o prompt de comando e crie uma nova pasta para o projeto.
+
+Acesse a pasta criada no terminal e inicie um novo projeto node.js executando o seguinte comando: npm init
+
+Isso criará um arquivo package.json na pasta do projeto que contém informações sobre o projeto e suas dependências.
+
+Agora, você pode instalar os pacotes necessários para o seu projeto usando o npm. Por exemplo, se você quiser usar o Express, um framework para aplicativos node.js, execute o seguinte comando:
+
+npm install express 
+
+Isso instalará o pacote do Express e todas as suas dependências na pasta node_modules.
+
+Agora, você pode criar um arquivo server.js na pasta do projeto e usar o Express para criar um servidor da Web. Aqui está um exemplo básico:
+
+const express = require('express');
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});
+
+Neste exemplo, estamos criando um servidor Express que escuta na porta 3000 e responde a solicitações GET na raiz (/) com uma resposta de texto simples.
+
+Salve o arquivo server.js e execute o seguinte comando no terminal para iniciar o servidor:
+
+node server.js
+
+Agora, você pode acessar o servidor no navegador da Web em http://localhost:3000 e ver a resposta "Hello, World!".
+
+Espero que isso ajude a entender como a Web funciona a partir do ponto de vista do protocolo cliente-servidor e como criar um projeto básico em node.js usando o npm.
