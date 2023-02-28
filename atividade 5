@@ -1,0 +1,26 @@
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Resposta da requisição GET');
+});
+
+app.post('/', (req, res) => {
+  res.send('Resposta da requisição POST');
+});
+
+app.put('/', (req, res) => {
+  res.send('Resposta da requisição PUT');
+});
+
+app.delete('/', (req, res) => {
+  res.send('Resposta da requisição DELETE');
+});
+
+app.listen(3000, () => {
+  console.log('Servidor rodando na porta 3000');
+});
+
+//Para rodar o código, basta salvá-lo em um arquivo com extensão .js (por exemplo, app.js) e executá-lo em um ambiente Node.js com a biblioteca Express instalada. Para isso, é preciso primeiro instalar as dependências do projeto com o comando npm install no diretório do projeto. Em seguida, basta executar o comando node app.js ou nodemon app.js para iniciar o servidor na porta 3000.
+
+Com o servidor rodando, você pode enviar requisições GET, POST, PUT e DELETE para a raiz do servidor (por exemplo, http://localhost:3000) usando uma ferramenta como o Postman ou o navegador. O servidor irá responder com uma string diferente para cada tipo de requisição.
