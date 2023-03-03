@@ -1,0 +1,67 @@
+const express = require('express');
+const router = express.Router();
+
+// Array de objetos que simula um banco de dados
+let items = [
+  { id: 1, name: 'Item 1' },
+  { id: 2, name: 'Item 2' },
+  { id: 3, name: 'Item 3' }
+];
+
+// Rota para listar todos os itens
+router.get('/', (req, res) => {
+  res.send(items);
+});
+
+// Rota para buscar um item pelo ID
+router.get('/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const item = items.find(item => item.id === id);
+  if (item) {
+    res.send(item);
+  } else {
+    res.status(404).send({ message: 'Item não encontrado' });
+  }
+});
+
+// Rota para criar um novo item
+router.post('/', (req, res) => {
+  const newItem = {
+    id: items.length + 1,
+    name: req.body.name
+  };
+  items.push(newItem);
+  res.status(201).send(newItem);
+});
+
+// Rota para atualizar um item existente
+router.put('/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const itemIndex = items.findIndex(item => item.id === id);
+  if (itemIndex !== -1) {
+    items[itemIndex].name = req.body.name;
+    res.send(items[itemIndex]);
+  } else {
+    res.status(404).send({ message: 'Item não encontrado' });
+  }
+});
+
+// Rota para excluir um item existente
+router.delete('/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const itemIndex = items.findIndex(item => item.id === id);
+  if (itemIndex !== -1) {
+    items.splice(itemIndex, 1);
+    res.status(204).send();
+  } else {
+    res.status(404).send({ message: 'Item não encontrado' });
+  }
+});
+
+module.exports = router;
+Neste exemplo, estamos criando um objeto router do Express que implementa as rotas para o CRUD de uma lista de itens. A lista de itens é simulada como um array de objetos no topo do arquivo.
+
+As rotas para as operações do CRUD são definidas usando os métodos do objeto router. O método router.get() define a rota para obter todos os itens ou um item pelo ID. O método router.post() define a rota para criar um novo item. O método router.put() define a rota para atualizar um item existente. O método router.delete() define a rota para excluir um item existente.
+
+
+
