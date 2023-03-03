@@ -59,9 +59,3 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
-Neste exemplo, estamos criando um objeto router do Express que implementa as rotas para o CRUD de uma lista de itens. A lista de itens é simulada como um array de objetos no topo do arquivo.
-
-As rotas para as operações do CRUD são definidas usando os métodos do objeto router. O método router.get() define a rota para obter todos os itens ou um item pelo ID. O método router.post() define a rota para criar um novo item. O método router.put() define a rota para atualizar um item existente. O método router.delete() define a rota para excluir um item existente.
-
-
-
