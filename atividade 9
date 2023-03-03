@@ -1,0 +1,29 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Middleware para fazer o parsing do corpo das requisições como JSON
+app.use(express.json());
+
+// Rota GET para obter informações sobre um usuário pelo ID
+app.get('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  const user = {
+    id: userId,
+    name: 'João da Silva',
+    age: 30
+  };
+  res.json(user);
+});
+
+// Rota POST para criar um novo usuário
+app.post('/users', (req, res) => {
+  const newUser = req.body;
+  newUser.id = Math.floor(Math.random() * 1000); // Gera um ID aleatório
+  res.status(201).json(newUser);
+});
+
+// Inicia o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
